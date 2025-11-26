@@ -4,7 +4,7 @@ import LoginForm from '@/pages/Authforms.jsx';
 import Registerforms from '@/pages/Registerforms.jsx';
 import Forgetpassword from '@/pages/Forgetpassword.jsx';
 import Dashboard from '@/pages/Dashboard.jsx'
-import Mainlayout from './layout/MainLayout.jsx'
+import Mainlayout from '@/layout/MainLayout.jsx'
 import './App.css'
 
 
