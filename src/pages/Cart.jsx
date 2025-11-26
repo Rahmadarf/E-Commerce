@@ -24,7 +24,7 @@ const CartPage = ({ setActivePage }) => {
         const userId = localStorage.getItem('UUID')
 
         try {
-            const res = await axios.get(`http://localhost:3001/cart/${userId}`)
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/cart/${userId}`)
 
             setCartItems(
                 res.data.data.map(item => ({
@@ -62,7 +62,7 @@ const CartPage = ({ setActivePage }) => {
         }
 
         try {
-            const res = await axios.put('http://localhost:3001/update-cart', {
+            const res = await axios.put(`${import.meta.env.VITE_API_URL}/update-cart`, {
                 cartId,
                 quantity: newQty
             })
@@ -75,7 +75,7 @@ const CartPage = ({ setActivePage }) => {
 
     const deleteCart = async (cartId) => {
         try {
-            const res = await axios.delete(`http://localhost:3001/delete-cart/${cartId}`)
+            const res = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-cart/${cartId}`)
             loadCart()
         } catch (error) {
             console.error(error)

@@ -32,7 +32,7 @@ const Homepage = ({ setActivePage }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get('http://localhost:3001/produk')
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/produk`)
 
                 await delay(5000)
 
@@ -57,7 +57,7 @@ const Homepage = ({ setActivePage }) => {
         const userId = localStorage.getItem('UUID')
 
         try {
-            const res = await axios.post('http://localhost:3001/add-cart', {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/add-cart`, {
                 userId,
                 produkId,
                 quantity: 1

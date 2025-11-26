@@ -47,7 +47,7 @@ const AdminDashboard = () => {
     const loadProduct = async () => {
 
         try {
-            const res = await axios.get('http://localhost:3001/produk')
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/produk`)
 
             const produk = res.data.data
             setProducts(produk)
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
             formData.append('delivery', produckDelivery)
             formData.append('originalPrice', produckOriginalPrice)
 
-            await axios.post('http://localhost:3001/add-produk', formData)
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-produk`, formData)
 
             await delay(1000)
             setAdd(false)
@@ -107,7 +107,7 @@ const AdminDashboard = () => {
 
     const handleDelete = async (produkId) => {
         try {
-            await axios.delete(`http://localhost:3001/delete-produk/${produkId}`)
+            await axios.delete(`${import.meta.env.VITE_API_URL}/delete-produk/${produkId}`)
             loadProduct()
         } catch (error) {
             console.error(error)
